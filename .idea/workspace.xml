@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Defines HashTable class with __init__ function for empty hash table.">
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Defines insert() method for HashTable and adds comments for this method and prior class code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HashTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable.py" afterDir="false" />
     </list>
@@ -118,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708233516595</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Defines insert() method for HashTable and adds comments for this method and prior class code.">
+      <option name="closed" value="true" />
+      <created>1708304856350</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708304856350</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,7 +144,8 @@
     <MESSAGE value="Initialize python project" />
     <MESSAGE value="Adds HashTable.py file to be written later." />
     <MESSAGE value="Defines HashTable class with __init__ function for empty hash table." />
-    <option name="LAST_COMMIT_MESSAGE" value="Defines HashTable class with __init__ function for empty hash table." />
+    <MESSAGE value="Defines insert() method for HashTable and adds comments for this method and prior class code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Defines insert() method for HashTable and adds comments for this method and prior class code." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
