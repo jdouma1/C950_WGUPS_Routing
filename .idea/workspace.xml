@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Defines insert() method for HashTable and adds comments for this method and prior class code.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Defines search() method for HashTable with documented comments.">
       <change beforePath="$PROJECT_DIR$/HashTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708304856350</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Defines search() method for HashTable with documented comments.">
+      <option name="closed" value="true" />
+      <created>1708408579319</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708408579319</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,7 +152,8 @@
     <MESSAGE value="Adds HashTable.py file to be written later." />
     <MESSAGE value="Defines HashTable class with __init__ function for empty hash table." />
     <MESSAGE value="Defines insert() method for HashTable and adds comments for this method and prior class code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Defines insert() method for HashTable and adds comments for this method and prior class code." />
+    <MESSAGE value="Defines search() method for HashTable with documented comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="Defines search() method for HashTable with documented comments." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

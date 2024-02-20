@@ -38,4 +38,13 @@ class HashTable:
             # The key was not found
             return None
 
+    # This method searches for the item via key and removes from bucket list if found
+    def remove(self, key):
+        # The item's bucket is found by hashing the key then performing 'hash mod table length'
+        # The bucket list is found by retrieving the list stored in the bucket
+        bucket = hash(key) % len(self.table)
+        bucketList = self.table[bucket]
 
+        # Search for a matching key in the bucket list
+        if key in bucketList:
+            bucketList.remove(key)
