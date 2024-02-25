@@ -41,13 +41,13 @@ class HashTable:
         bucketList = self.table[bucket]
 
         # Search for a matching key in the bucket list
-        if key in bucketList:
-            # If the key is found, retrieve the item from its found index
-            itemIndex = bucketList.index(key)
-            return bucketList[itemIndex]
-        else:
-            # The key was not found
-            return None
+        for keyValue in bucketList:
+            # If the key is found, retrieve the value from [key, value] pair
+            if keyValue[0] == key:
+                return keyValue[1]
+
+        # The key was not found
+        return None
 
     # This method searches for the item via key and removes from bucket list if found
     def remove(self, key):
