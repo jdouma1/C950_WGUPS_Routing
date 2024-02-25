@@ -12,15 +12,26 @@ class HashTable:
 
     # This method hashes the item and places it into the appropriate bucket
     # Chaining is used if applicable
-    def insert(self, item):
+    def insert(self, key, value):
         # The item's bucket is the result of first hashing the data into numerical form
         # and then performing 'the resulting hash' mod table length (in this case 40)
-        bucket = hash(item) % len(self.table)
+        bucket = hash(key) % len(self.table)
 
         # The prior resulting bucket is used to pull the bucket list from the table
         # The item is then appended to the bucket's list
         bucketList = self.table[bucket]
-        bucketList.append(item)
+
+        #Search if [key, value] pair exists
+        #If exists, update the pair's value to value provided
+        for keyValue in bucketList:
+            if keyValue[0] == key:
+                keyValue[1] = value
+                return True
+
+        #If pair does not exist, append it to the end of the bucket list
+        keyValue = [key, value]
+        bucketList.append(keyValue)
+        return True
 
     # This method searches for the item by hashing the key and searching the returned bucket list
     def search(self, key):
