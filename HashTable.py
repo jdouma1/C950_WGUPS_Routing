@@ -57,5 +57,6 @@ class HashTable:
         bucketList = self.table[bucket]
 
         # Search for a matching key in the bucket list
-        if key in bucketList:
-            bucketList.remove(key)
+        for keyValue in bucketList:
+            if keyValue[0] == key:
+                bucketList.remove([keyValue[0], keyValue[1]])
