@@ -21,14 +21,14 @@ class HashTable:
         # The item is then appended to the bucket's list
         bucketList = self.table[bucket]
 
-        #Search if [key, value] pair exists
-        #If exists, update the pair's value to value provided
+        # Search if [key, value] pair exists
+        # If exists, update the pair's value to value provided
         for keyValue in bucketList:
             if keyValue[0] == key:
                 keyValue[1] = value
                 return True
 
-        #If pair does not exist, append it to the end of the bucket list
+        # If pair does not exist, append it to the end of the bucket list
         keyValue = [key, value]
         bucketList.append(keyValue)
         return True
