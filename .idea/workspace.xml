@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Adds dijkstra algorithm for delivery route into main.py.">
-      <change afterPath="$PROJECT_DIR$/Dijkstra.py" afterDir="false" />
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Adds dijkstra algorithm, vertex, and graph class code into exclusive Dijkstra.py file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graph.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Package.py" beforeDir="false" afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vertex.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709607083544</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Adds dijkstra algorithm, vertex, and graph class code into exclusive Dijkstra.py file">
+      <option name="closed" value="true" />
+      <created>1709609306791</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709609306791</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -241,6 +252,7 @@
     <MESSAGE value="Adds comments to main.py and Package.py for recently implemented class and loadPackageData() logic." />
     <MESSAGE value="Adds Vertex and Graph classes to map packages and their weights(distances)." />
     <MESSAGE value="Adds dijkstra algorithm for delivery route into main.py." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds dijkstra algorithm for delivery route into main.py." />
+    <MESSAGE value="Adds dijkstra algorithm, vertex, and graph class code into exclusive Dijkstra.py file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds dijkstra algorithm, vertex, and graph class code into exclusive Dijkstra.py file" />
   </component>
 </project>
