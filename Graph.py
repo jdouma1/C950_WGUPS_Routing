@@ -11,11 +11,11 @@ class Graph:
         self.adjacencyList[vertex] = []
 
     # Method updates values for edge weight and adjacency list for start and end vertex
-    def addDirectedEdge(self, startVertex, endVertex, weight):
-        self.edgeWeights[(startVertex, endVertex)] = weight
+    def addDirectedEdge(self, startVertex, endVertex, edgeWeight):
+        self.edgeWeights[(startVertex, endVertex)] = edgeWeight
         self.adjacencyList[startVertex].append(endVertex)
 
     # Method creates 'undirected' edge by creating 2-way directed edge for each vertex
-    def addUndirectedEdge(self, vertexC, vertexD, weight = 1.0):
-        self.addDirectedEdge(vertexC, vertexD, weight)
-        self.addDirectedEdge(vertexD, vertexC, weight)
+    def addUndirectedEdge(self, vertexC, vertexD, edgeWeight = 1.0):
+        self.addDirectedEdge(vertexC, vertexD, edgeWeight)
+        self.addDirectedEdge(vertexD, vertexC, edgeWeight)

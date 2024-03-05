@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Adds comments to main.py and Package.py for recently implemented class and loadPackageData() logic.">
-      <change afterPath="$PROJECT_DIR$/Graph.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vertex.py" afterDir="false" />
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Adds Vertex and Graph classes to map packages and their weights(distances).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Package.py" beforeDir="false" afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vertex.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vertex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708881064382</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Adds Vertex and Graph classes to map packages and their weights(distances).">
+      <option name="closed" value="true" />
+      <created>1708922431673</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1708922431673</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -224,6 +234,7 @@
     <MESSAGE value="Updates remove() method for HashTable for operating on [key,value] pairs." />
     <MESSAGE value="Adds test script in main.py to ensure working HashTable" />
     <MESSAGE value="Adds comments to main.py and Package.py for recently implemented class and loadPackageData() logic." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds comments to main.py and Package.py for recently implemented class and loadPackageData() logic." />
+    <MESSAGE value="Adds Vertex and Graph classes to map packages and their weights(distances)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds Vertex and Graph classes to map packages and their weights(distances)." />
   </component>
 </project>
