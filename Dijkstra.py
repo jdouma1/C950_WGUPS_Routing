@@ -66,3 +66,16 @@ def dijkstraDeliveryRoute(graph, startVertex):
             if altPathDistance < adjacentVertex.distance:
                 adjacentVertex.distance = altPathDistance
                 adjacentVertex.predecessor = currVertex
+
+
+def computeShortestPath(startVertex, endVertex, packageHashTable):
+    shortestPath = ""
+    currVertex = endVertex
+
+    while currVertex is not endVertex:
+        package = packageHashTable.search(int(currVertex.label))
+        path = " --> " + package.packageId + path
+        currVertex = currVertex.predecessor
+
+    path = startVertex.label + path
+    return path
