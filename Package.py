@@ -4,18 +4,18 @@ import csv
 # Class used for creating packages and package data for hash table
 class Package:
     # Constructor for package to store address and other key information
-    def __init__(self, packageId, address, city, state, zipCode, deliveryDeadline, edgeWeight):
+    def __init__(self, packageId, address, city, state, zipCode, deliveryDeadline, weight):
         self.packageId = packageId
         self.address = address
         self.city = city
         self.state = state
         self.zipCode = zipCode
         self.deliveryDeadline = deliveryDeadline
-        self.edgeWeight = edgeWeight
+        self.weight = weight
 
     # Method to overwrite how package is printed to print data instead of object
     def __str__(self):
-        return "%s, %s, %s, %s, %s, %s, %s" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.edgeWeight)
+        return "%s, %s, %s, %s, %s, %s, %s" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight)
 
     # Method takes file and reads through entries to load packages into hash table
 def loadPackageData(fileName, packageHashTable):
@@ -29,8 +29,8 @@ def loadPackageData(fileName, packageHashTable):
             state = package[3]
             zipCode = int(package[4])
             deliveryDeadline = package[5]
-            edgeWeight = int(package[6])
+            weight = int(package[6])
 
             # Create and insert new package into hash table
-            newPackage = Package(packageId, address, city, state, zipCode, deliveryDeadline, edgeWeight)
+            newPackage = Package(packageId, address, city, state, zipCode, deliveryDeadline, weight)
             packageHashTable.insert(packageId, newPackage)

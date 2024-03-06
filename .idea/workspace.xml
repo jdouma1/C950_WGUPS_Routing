@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Removes duplicate Graph and Vertex code in files. Optimizes imports in main.py.">
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Adds computeShortestPath() method in Dijkstra.py.">
+      <change afterPath="$PROJECT_DIR$/Distance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Distances.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Package.py" beforeDir="false" afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -227,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709610162138</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Adds computeShortestPath() method in Dijkstra.py.">
+      <option name="closed" value="true" />
+      <created>1709611078498</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1709611078498</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -260,6 +270,7 @@
     <MESSAGE value="Adds dijkstra algorithm for delivery route into main.py." />
     <MESSAGE value="Adds dijkstra algorithm, vertex, and graph class code into exclusive Dijkstra.py file" />
     <MESSAGE value="Removes duplicate Graph and Vertex code in files. Optimizes imports in main.py." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removes duplicate Graph and Vertex code in files. Optimizes imports in main.py." />
+    <MESSAGE value="Adds computeShortestPath() method in Dijkstra.py." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds computeShortestPath() method in Dijkstra.py." />
   </component>
 </project>
