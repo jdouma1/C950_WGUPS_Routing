@@ -57,18 +57,25 @@ def loadDistanceData(fileName, distanceDataList):
 def loadTruckDeliveryGraph(distanceDataList, addressDataList):
     graph = Graph()
 
+    '''
+    Store each created vertex in list to eliminate key errors
+    present when accessing adjacencyList dictionary in Dijkstra.py
+    '''
+    vertexList = []
     for address in addressDataList:
         vertex = Vertex(address)
+        vertexList.append(vertex)
+
         graph.addVertex(vertex)
 
     j = 0
     for distanceList in distanceDataList:
         k = 0
         for distance in distanceList:
-            startVertex = Vertex(addressDataList[j])
-            endVertex = Vertex(addressDataList[k])
-            print(startVertex.label + " --> " + endVertex.label + " :: " + distance)
-            # graph.addDirectedEdge(startVertex, endVertex, distance)
+            startVertex = vertexList[j]
+            endVertex = vertexList[k]
+            # print(startVertex.label + " --> " + endVertex.label + " :: " + distance)
+            graph.addDirectedEdge(startVertex, endVertex, float(distance))
             k += 1
         j += 1
 

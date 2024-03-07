@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Adds distances CSV file and loadDistanceData() method to load into 2D array.">
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Fixes loadDistanceData() logic and begins implementing loadTruckDeliveryGraph().">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/Distance.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -243,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709702743233</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixes loadDistanceData() logic and begins implementing loadTruckDeliveryGraph().">
+      <option name="closed" value="true" />
+      <created>1709836296630</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1709836296630</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -278,6 +286,7 @@
     <MESSAGE value="Removes duplicate Graph and Vertex code in files. Optimizes imports in main.py." />
     <MESSAGE value="Adds computeShortestPath() method in Dijkstra.py." />
     <MESSAGE value="Adds distances CSV file and loadDistanceData() method to load into 2D array." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds distances CSV file and loadDistanceData() method to load into 2D array." />
+    <MESSAGE value="Fixes loadDistanceData() logic and begins implementing loadTruckDeliveryGraph()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes loadDistanceData() logic and begins implementing loadTruckDeliveryGraph()." />
   </component>
 </project>
