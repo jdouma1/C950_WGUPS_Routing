@@ -1,12 +1,14 @@
 import csv
+from Dijkstra import Vertex, Graph
 
 
 class Distance:
     def __init__(self):
         self.distanceDataList = []
         self.addressDataList = [
-"HUB",
-" 1060 Dalton Ave S (84104)", "1330 2100 S (84106)",
+"Western Governors University",
+"1060 Dalton Ave S (84104)",
+"1330 2100 S (84106)",
 "1488 4800 S (84123)",
 "177 W Price Ave (84115)",
 "195 W Oakland Ave (84115)",
@@ -33,7 +35,7 @@ class Distance:
 "6351 South 900 East (84121)"
 ]
 
-        for i in range(len(self.addressDataList) - 1):
+        for i in range(len(self.addressDataList)):
             self.distanceDataList.append([])
 
 # Method takes file and reads through entries to load distances into list[][]
@@ -43,11 +45,31 @@ def loadDistanceData(fileName, distanceDataList):
         next(distanceData)  # Skip the header
         rowDistances = []
         # Index tracks which row of distanceDataList 2D array
-        i = 0
+        k = 0
         for distance in distanceData:
-            # len() - 1 filters out distances of 0.0 which refer to same address
-            for i in range(len(distance) - 1):
-                rowDistances.append(distance[i])
+            for j in range(len(distance)):
+                rowDistances.append(distance[j])
             # Replace empty row with list of row distances then reset rowDistances
-            distanceDataList[i] = rowDistances
+            distanceDataList[k] = rowDistances
             rowDistances = []
+            k += 1
+
+def loadTruckDeliveryGraph(distanceDataList, addressDataList):
+    graph = Graph()
+
+    for address in addressDataList:
+        vertex = Vertex(address)
+        graph.addVertex(vertex)
+
+    j = 0
+    for distanceList in distanceDataList:
+        k = 0
+        for distance in distanceList:
+            startVertex = Vertex(addressDataList[j])
+            endVertex = Vertex(addressDataList[k])
+            print(startVertex.label + " --> " + endVertex.label + " :: " + distance)
+            # graph.addDirectedEdge(startVertex, endVertex, distance)
+            k += 1
+        j += 1
+
+    return graph
