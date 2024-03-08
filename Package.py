@@ -33,4 +33,8 @@ def loadPackageData(fileName, packageHashTable):
 
             # Create and insert new package into hash table
             newPackage = Package(packageId, address, city, state, zipCode, deliveryDeadline, weight)
-            packageHashTable.insert(packageId, newPackage)
+            address = address.replace('"', '')
+            address = address + " " + str(zipCode)
+            address = address.strip()
+            print(address)
+            packageHashTable.insert(address, newPackage)

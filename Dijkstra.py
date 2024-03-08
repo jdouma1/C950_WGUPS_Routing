@@ -70,12 +70,16 @@ def dijkstraDeliveryRoute(graph, startVertex):
 
 def computeShortestPath(startVertex, endVertex, packageHashTable):
     shortestPath = ""
-    currVertex = endVertex
+    currVertex = startVertex
 
+    i = 0
     while currVertex is not endVertex:
+        print("Loop: " + str(i))
         package = packageHashTable.search(int(currVertex.label))
-        path = " --> " + package.packageId + path
+        string = (" --> " + str(package.packageId))
+        shortestPath = string + shortestPath
         currVertex = currVertex.predecessor
+        i += 1
 
-    path = startVertex.label + path
-    return path
+    shortestPath = startVertex.label + shortestPath
+    return shortestPath
