@@ -4,6 +4,7 @@ from Dijkstra import Vertex, Graph
 
 class Distance:
     def __init__(self):
+        self.vertexList = []
         self.distanceDataList = []
         self.addressDataList = [
 "Western Governors University",
@@ -54,7 +55,7 @@ def loadDistanceData(fileName, distanceDataList):
             rowDistances = []
             k += 1
 
-def loadTruckDeliveryGraph(distanceDataList, addressDataList):
+def loadDeliveryGraph(distanceObject):
     graph = Graph()
 
     '''
@@ -62,20 +63,21 @@ def loadTruckDeliveryGraph(distanceDataList, addressDataList):
     present when accessing adjacencyList dictionary in Dijkstra.py
     '''
     vertexList = []
-    for address in addressDataList:
+    for address in distanceObject.addressDataList:
         vertex = Vertex(address)
         vertexList.append(vertex)
 
         graph.addVertex(vertex)
+    distanceObject.vertexList = vertexList
 
     j = 0
-    for distanceList in distanceDataList:
+    for distanceList in distanceObject.distanceDataList:
         k = 0
         for distance in distanceList:
             startVertex = vertexList[j]
             endVertex = vertexList[k]
             # print(startVertex.label + " --> " + endVertex.label + " :: " + distance)
-            graph.addDirectedEdge(startVertex, endVertex, float(distance))
+            graph.addUndirectedEdge(startVertex, endVertex, float(distance))
             k += 1
         j += 1
 

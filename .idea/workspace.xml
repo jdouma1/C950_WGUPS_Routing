@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Fixes loadDistanceData() logic and begins implementing loadTruckDeliveryGraph().">
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Fixes dictionary key error in loadTruckDeliveryGraph() and finishes loading all directed edges.">
+      <change afterPath="$PROJECT_DIR$/Truck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/Distance.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -251,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709836296630</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fixes dictionary key error in loadTruckDeliveryGraph() and finishes loading all directed edges.">
+      <option name="closed" value="true" />
+      <created>1709837204839</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1709837204839</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -287,6 +296,7 @@
     <MESSAGE value="Adds computeShortestPath() method in Dijkstra.py." />
     <MESSAGE value="Adds distances CSV file and loadDistanceData() method to load into 2D array." />
     <MESSAGE value="Fixes loadDistanceData() logic and begins implementing loadTruckDeliveryGraph()." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes loadDistanceData() logic and begins implementing loadTruckDeliveryGraph()." />
+    <MESSAGE value="Fixes dictionary key error in loadTruckDeliveryGraph() and finishes loading all directed edges." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes dictionary key error in loadTruckDeliveryGraph() and finishes loading all directed edges." />
   </component>
 </project>
