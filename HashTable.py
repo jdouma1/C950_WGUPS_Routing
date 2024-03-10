@@ -4,7 +4,7 @@ class HashTable:
     # Constructor for hash table with default initial capacity set to 40
     # The default capacity refers to the number of packages to be delivered
     # Each bucket is initially assigned an empty list
-    def __init__(self, initialCapacity = 40):
+    def __init__(self, initialCapacity = 27):
         # Begin initializing hash table with empty bucket list entries
         self.table = []
         for i in range(initialCapacity):
@@ -40,14 +40,16 @@ class HashTable:
         bucket = hash(key) % len(self.table)
         bucketList = self.table[bucket]
 
+        return bucketList
+        '''
         # Search for a matching key in the bucket list
         for keyValue in bucketList:
             # If the key is found, retrieve the value from [key, value] pair
             if keyValue[0] == key:
                 return keyValue[1]
-
         # The key was not found
         return None
+        '''
 
     # This method searches for the item via key and removes from bucket list if found
     def remove(self, key):

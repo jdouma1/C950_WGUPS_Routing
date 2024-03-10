@@ -15,14 +15,15 @@ currentTime = datetime.timedelta(hours=int(8), minutes=int(0), seconds=int(0))
 if __name__ == '__main__':
     # Load packages into hash table from csv file
     loadPackageData("Packages.csv", packageHashTable)
-    for i in range(len(packageHashTable.table) + 1):
-        print("Key:", str(i + 1), "and Package:", packageHashTable.search(distance.addressDataList[i]))
+    # for i in range(len(packageHashTable.table) + 1):
+        # print("Key:", str(i + 1), "and Package:", packageHashTable.search(distance.addressDataList[i]))
 
     # Load distance and address data into lists from csv file
-    loadDistanceData("Distances.csv", distance.distanceDataList)
+    loadDistanceData("Distances.csv", distance.distanceTable)
 
     # Initialize graph with edges present in distance table
     graph = loadGraph(distance)
+    # graph.printAdjacencyList(distance)
     dijkstraDeliveryRoute(graph, distance.vertexList[0])
 
     truck1 = Truck()
@@ -38,7 +39,14 @@ if __name__ == '__main__':
     reloadTruckTwoPackages(truck2)
     # Deliver next round packages
 
-    print(computeShortestPath(distance.vertexList[0], distance.vertexList[16], packageHashTable))
+    # print(distance.vertexList[1].label)
+    # print(distance.addressDataList[1])
+    # list = packageHashTable.search(distance.addressDataList[1])
+    list = packageHashTable.search(4)
+    print(list)
+    for item in list:
+        print("ADDRESS:", item[0], "PACKAGE:", item[1])
+    # print(computeShortestPath(distance.vertexList[0], distance.vertexList[16], packageHashTable))
     '''
     loop = True
     while loop is True:

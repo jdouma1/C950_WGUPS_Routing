@@ -1,3 +1,6 @@
+import Distance
+
+
 # Vertex class used to map delivery route on graph
 class Vertex:
     # Vertices begin with a distance of infinity and no predecessor vertices
@@ -29,6 +32,9 @@ class Graph:
         self.addDirectedEdge(vertexC, vertexD, edgeWeight)
         self.addDirectedEdge(vertexD, vertexC, edgeWeight)
 
+    def printAdjacencyList(self, distance):
+        for start, end in self.edgeWeights:
+            print("START:", start.label, "END:", end.label, self.edgeWeights[(start, end)])
 
 # Dijkstra algorithm implementation for delivery route
 def dijkstraDeliveryRoute(graph, startVertex):
@@ -70,16 +76,16 @@ def dijkstraDeliveryRoute(graph, startVertex):
 
 def computeShortestPath(startVertex, endVertex, packageHashTable):
     shortestPath = ""
-    currVertex = startVertex
+    currVertex = endVertex
 
-    i = 0
-    while currVertex is not endVertex:
-        print("Loop: " + str(i))
-        package = packageHashTable.search(int(currVertex.label))
+    # i = 0
+    while currVertex is not startVertex:
+        # print("Loop: " + str(i))
+        package = packageHashTable.search(currVertex.label)
         string = (" --> " + str(package.packageId))
         shortestPath = string + shortestPath
         currVertex = currVertex.predecessor
-        i += 1
+        # i += 1
 
     shortestPath = startVertex.label + shortestPath
     return shortestPath

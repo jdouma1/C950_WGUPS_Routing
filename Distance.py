@@ -5,7 +5,9 @@ from Dijkstra import Vertex, Graph
 class Distance:
     def __init__(self):
         self.vertexList = []
-        self.distanceDataList = []
+        self.distanceTable = []
+        for i in range(27):
+            self.distanceTable.append([])
         # Size 27
         self.addressDataList = [
 "Western Governors University",
@@ -37,11 +39,8 @@ class Distance:
 "6351 South 900 East 84121"
 ]
 
-        for i in range(len(self.addressDataList)):
-            self.distanceDataList.append([])
-
 # Method takes file and reads through entries to load distances into list[][]
-def loadDistanceData(fileName, distanceDataList):
+def loadDistanceData(fileName, distanceTable):
     with open(fileName) as distances:
         distanceData = csv.reader(distances, delimiter=' ')
         next(distanceData)  # Skip the header
@@ -52,7 +51,7 @@ def loadDistanceData(fileName, distanceDataList):
             for j in range(len(distance)):
                 rowDistances.append(distance[j])
             # Replace empty row with list of row distances then reset rowDistances
-            distanceDataList[k] = rowDistances
+            distanceTable[k] = rowDistances
             rowDistances = []
             k += 1
 
@@ -72,7 +71,7 @@ def loadGraph(distanceObject):
     distanceObject.vertexList = vertexList
 
     j = 0
-    for distanceList in distanceObject.distanceDataList:
+    for distanceList in distanceObject.distanceTable:
         k = 0
         for distance in distanceList:
             startVertex = vertexList[j]
