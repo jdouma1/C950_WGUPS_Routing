@@ -1,8 +1,7 @@
 # Class used for storing and manipulating packages in a hash table using chaining
 class HashTable:
-
-    # Constructor for hash table with default initial capacity set to 40
-    # The default capacity refers to the number of packages to be delivered
+    # Constructor for hash table with default initial capacity set to 27
+    # The default capacity refers to the number of addresses/vertices
     # Each bucket is initially assigned an empty list
     def __init__(self, initialCapacity = 27):
         # Begin initializing hash table with empty bucket list entries
@@ -27,7 +26,6 @@ class HashTable:
             if keyValue[0] == key:
                 keyValue[1] = value
                 return True
-
         # If pair does not exist, append it to the end of the bucket list
         keyValue = [key, value]
         bucketList.append(keyValue)
@@ -40,8 +38,7 @@ class HashTable:
         bucket = hash(key) % len(self.table)
         bucketList = self.table[bucket]
 
-        return bucketList
-        '''
+        # return bucketList
         # Search for a matching key in the bucket list
         for keyValue in bucketList:
             # If the key is found, retrieve the value from [key, value] pair
@@ -49,7 +46,6 @@ class HashTable:
                 return keyValue[1]
         # The key was not found
         return None
-        '''
 
     # This method searches for the item via key and removes from bucket list if found
     def remove(self, key):

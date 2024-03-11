@@ -1,12 +1,14 @@
 # Jacob Douma / Student ID: 010764471
+
 import datetime
 from HashTable import HashTable
 from Package import loadPackageData
 from Distance import Distance, loadDistanceData, loadGraph
-from Dijkstra import Vertex, Graph, dijkstraDeliveryRoute, computeShortestPath
+from Dijkstra import dijkstraDeliveryRoute, computeShortestPath
 from Truck import Truck, loadTruckOnePackages, reloadTruckOnePackages, loadTruckTwoPackages, reloadTruckTwoPackages
 
 # Global variable for hash table, distance table data, and current time for deliveries
+# 8:00 A.M. is when trucks depart the depot for delivery
 packageHashTable = HashTable()
 distance = Distance()
 currentTime = datetime.timedelta(hours=int(8), minutes=int(0), seconds=int(0))
@@ -15,15 +17,14 @@ currentTime = datetime.timedelta(hours=int(8), minutes=int(0), seconds=int(0))
 if __name__ == '__main__':
     # Load packages into hash table from csv file
     loadPackageData("Packages.csv", packageHashTable)
-    # for i in range(len(packageHashTable.table) + 1):
-        # print("Key:", str(i + 1), "and Package:", packageHashTable.search(distance.addressDataList[i]))
 
     # Load distance and address data into lists from csv file
     loadDistanceData("Distances.csv", distance.distanceTable)
 
     # Initialize graph with edges present in distance table
     graph = loadGraph(distance)
-    # graph.printAdjacencyList(distance)
+
+    # Perform Dijkstra to find the shortest routes between vertices on graph
     dijkstraDeliveryRoute(graph, distance.vertexList[0])
 
     truck1 = Truck()
@@ -32,21 +33,19 @@ if __name__ == '__main__':
     # Load first round packages
     loadTruckOnePackages(truck1)
     loadTruckTwoPackages(truck2)
-    # Deliver first round packages
+    # Deliver first round packages (CODE MISSING)
 
     # Load next round packages
     reloadTruckOnePackages(truck1)
     reloadTruckTwoPackages(truck2)
-    # Deliver next round packages
+    # Deliver next round packages (CODE MISSING)
 
-    # print(distance.vertexList[1].label)
-    # print(distance.addressDataList[1])
-    # list = packageHashTable.search(distance.addressDataList[1])
-    list = packageHashTable.search(4)
-    print(list)
-    for item in list:
-        print("ADDRESS:", item[0], "PACKAGE:", item[1])
-    # print(computeShortestPath(distance.vertexList[0], distance.vertexList[16], packageHashTable))
+    # list = packageHashTable.search(4)
+    # print(list)
+    # for item in list:
+        # print("ADDRESS:", item[0], "\nPACKAGE:", item[1], "\n\n")
+    print(computeShortestPath(distance.vertexList[0], distance.vertexList[16], packageHashTable))
+
     '''
     loop = True
     while loop is True:
@@ -66,18 +65,4 @@ if __name__ == '__main__':
         if choice == '4':
             loop = False
             break
-    '''
-
-
-    '''
-    Iterate over packages in hash table and print data
-    for i in range(len(packageHashTable.table) + 1):
-        print("Key:", str(i+1), " and Package: ", packageHashTable.search(i+1))
-
-    print()
-    print()
-    print()
-    for i in range(len(distance.distanceDataList)):
-        print(distance.distanceDataList[i])
-    print(distance.distanceDataList[1])
     '''

@@ -17,7 +17,8 @@ class Package:
     def __str__(self):
         return "%s, %s, %s, %s, %s, %s, %s" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight)
 
-    # Method takes file and reads through entries to load packages into hash table
+
+# Method takes file and reads through entries to load packages into hash table
 def loadPackageData(fileName, packageHashTable):
     with open(fileName) as packages:
         packageData = csv.reader(packages, delimiter=',')

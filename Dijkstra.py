@@ -1,7 +1,7 @@
 import Distance
 
 
-# Vertex class used to map delivery route on graph
+# Vertex class used to plot addresses on graph for delivery
 class Vertex:
     # Vertices begin with a distance of infinity and no predecessor vertices
     def __init__(self, label):
@@ -10,7 +10,7 @@ class Vertex:
         self.predecessor = None
 
 
-# Class used for mapping vertices onto a graph
+# Class used for mapping vertices onto a graph with list of adjacent vertices and edges
 class Graph:
     # Adjacency list stores key:value of vertices and their edges with other vertices
     # Edge weights stores key:value of vertices and the weight of their edges with other vertices
@@ -32,11 +32,13 @@ class Graph:
         self.addDirectedEdge(vertexC, vertexD, edgeWeight)
         self.addDirectedEdge(vertexD, vertexC, edgeWeight)
 
-    def printAdjacencyList(self, distance):
+    # Method used to visualize and verify edges created in graph
+    def printEdges(self, distance):
         for start, end in self.edgeWeights:
             print("START:", start.label, "END:", end.label, self.edgeWeights[(start, end)])
 
-# Dijkstra algorithm implementation for delivery route
+
+# Dijkstra algorithm implementation for truck delivery routes
 def dijkstraDeliveryRoute(graph, startVertex):
     # Begin by putting all vertices in a queue of unvisited vertices
     unvisitedQueue = []
@@ -63,7 +65,6 @@ def dijkstraDeliveryRoute(graph, startVertex):
         # Check each path length from current vertex to all neighboring vertices
         for adjacentVertex in graph.adjacencyList[currVertex]:
             # Pull the edge weight from dictionary using key:value pair
-            #
             edgeWeight = graph.edgeWeights[(currVertex, adjacentVertex)]
             altPathDistance = currVertex.distance + edgeWeight
 
@@ -74,18 +75,16 @@ def dijkstraDeliveryRoute(graph, startVertex):
                 adjacentVertex.predecessor = currVertex
 
 
+# Method used to verify Dijkstra algorithm and display the shortest path between vertices
 def computeShortestPath(startVertex, endVertex, packageHashTable):
     shortestPath = ""
     currVertex = endVertex
 
-    # i = 0
     while currVertex is not startVertex:
-        # print("Loop: " + str(i))
-        package = packageHashTable.search(currVertex.label)
-        string = (" --> " + str(package.packageId))
+        # package = packageHashTable.search(currVertex.label)
+        # string = (" --> " + str(package.packageId))
+        string = (" --> " + currVertex.label)
         shortestPath = string + shortestPath
         currVertex = currVertex.predecessor
-        # i += 1
-
     shortestPath = startVertex.label + shortestPath
     return shortestPath
