@@ -1,3 +1,6 @@
+from Distance import Distance, loadDistanceData, loadGraph
+from Dijkstra import dijkstraDeliveryRoute, computeShortestPath
+
 # Truck class used to manually/heuristically load packages for delivery by Dijkstra
 class Truck:
     # Constructor initializes empty list to store packages for delivery
@@ -8,6 +11,32 @@ class Truck:
     def loadPackages(self, packageList):
         for package in packageList:
             self.truckPackages.append(package)
+
+    def unloadPackages(self, graph, distance, currentTime, hashTable):
+        k = 0
+        for i in range(len(self.truckPackages) - 1):
+            packageId = self.truckPackages[i]
+            package = hashTable.search(packageId)
+            index = distance.addressDataList.index(package.address + " " + str(package.zipCode))
+            startVertex = distance.vertexList[index]
+
+            k = k + 1
+            packageId = self.truckPackages[k]
+            nextPackage = hashTable.search(packageId)
+            index = distance.addressDataList.index(nextPackage.address + " " + str(nextPackage.zipCode))
+            endVertex = distance.vertexList[index]
+
+            if package.address != nextPackage.address:
+                # dijkstraDeliveryRoute(graph, startVertex)
+                computeShortestPath(startVertex, endVertex, hashTable)
+
+        '''
+        for i in range(len(self.truckPackages)):
+            if package.address == address:
+                package.deliveryTime = currentTime
+                hashTable.insert(i, package)
+                self.truckPackages.pop(i)
+        '''
 
 
 def loadTruckOnePackages(truck):

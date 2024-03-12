@@ -33,18 +33,16 @@ if __name__ == '__main__':
     # Load first round packages
     loadTruckOnePackages(truck1)
     loadTruckTwoPackages(truck2)
-    # Deliver first round packages (CODE MISSING)
+    # Deliver first round packages
+    # verticesList = computeShortestPath(distance.vertexList[12], distance.vertexList[0], packageHashTable)
+    truck1.unloadPackages(graph, distance, currentTime, packageHashTable)
 
     # Load next round packages
     reloadTruckOnePackages(truck1)
     reloadTruckTwoPackages(truck2)
     # Deliver next round packages (CODE MISSING)
 
-    # list = packageHashTable.search(4)
-    # print(list)
-    # for item in list:
-        # print("ADDRESS:", item[0], "\nPACKAGE:", item[1], "\n\n")
-    print(computeShortestPath(distance.vertexList[0], distance.vertexList[16], packageHashTable))
+
 
     '''
     loop = True

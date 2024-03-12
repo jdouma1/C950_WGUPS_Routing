@@ -4,7 +4,7 @@ import csv
 # Class used for creating packages and package data for hash table
 class Package:
     # Constructor for package to store address and other key information
-    def __init__(self, packageId, address, city, state, zipCode, deliveryDeadline, weight):
+    def __init__(self, packageId, address, city, state, zipCode, deliveryDeadline, weight, deliveryTime):
         self.packageId = packageId
         self.address = address
         self.city = city
@@ -12,10 +12,11 @@ class Package:
         self.zipCode = zipCode
         self.deliveryDeadline = deliveryDeadline
         self.weight = weight
+        self.deliveryTime = deliveryTime
 
     # Method to overwrite how package is printed to print data instead of object
     def __str__(self):
-        return "%s, %s, %s, %s, %s, %s, %s" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight)
+        return "%s, %s, %s, %s, %s, %s, %s, %s" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight, self.deliveryTime)
 
 
 # Method takes file and reads through entries to load packages into hash table
@@ -25,16 +26,14 @@ def loadPackageData(fileName, packageHashTable):
         next(packageData)  # Skip the header
         for package in packageData:
             packageId = int(package[0])
-            address = package[1]
+            address = (package[1].replace('"', '')).strip()
             city = package[2]
             state = package[3]
             zipCode = int(package[4])
             deliveryDeadline = package[5]
             weight = int(package[6])
+            deliveryTime = "At Hub"
 
             # Create and insert new package into hash table
-            newPackage = Package(packageId, address, city, state, zipCode, deliveryDeadline, weight)
-            address = address.replace('"', '')
-            key = address + " " + str(zipCode)
-            key = key.strip()
+            newPackage = Package(packageId, address, city, state, zipCode, deliveryDeadline, weight, deliveryTime)
             packageHashTable.insert(packageId, newPackage)

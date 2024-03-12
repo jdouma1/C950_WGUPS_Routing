@@ -1,9 +1,9 @@
 # Class used for storing and manipulating packages in a hash table using chaining
 class HashTable:
-    # Constructor for hash table with default initial capacity set to 27
-    # The default capacity refers to the number of addresses/vertices
+    # Constructor for hash table with default initial capacity set to 40
+    # The default capacity refers to the number of packages
     # Each bucket is initially assigned an empty list
-    def __init__(self, initialCapacity = 27):
+    def __init__(self, initialCapacity = 40):
         # Begin initializing hash table with empty bucket list entries
         self.table = []
         for i in range(initialCapacity):
@@ -12,7 +12,7 @@ class HashTable:
     # This method hashes the item and places it into the appropriate bucket
     # Chaining is used if applicable
     def insert(self, key, value):
-        # The item's bucket is the result of first hashing the data into numerical form
+        # The item's bucket is the result of first hashing the key
         # and then performing 'the resulting hash' mod table length (in this case 40)
         bucket = hash(key) % len(self.table)
 
@@ -33,12 +33,12 @@ class HashTable:
 
     # This method searches for the item by hashing the key and searching the returned bucket list
     def search(self, key):
+
         # The item's bucket is found by hashing the key then performing 'hash mod table length'
         # The bucket list is found by retrieving the list stored in the bucket
         bucket = hash(key) % len(self.table)
         bucketList = self.table[bucket]
 
-        # return bucketList
         # Search for a matching key in the bucket list
         for keyValue in bucketList:
             # If the key is found, retrieve the value from [key, value] pair

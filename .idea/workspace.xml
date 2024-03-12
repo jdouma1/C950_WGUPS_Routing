@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Adds method printAdjacencyList. Still figuring out computeShortestPath (error between storing packages by ID versus accessing vertices by address).">
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Adds more concise comments to classes. Removes code testing comments. Continues fixing inconsistency with package key versus vertex key when computing shortest path.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dijkstra.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/Distance.py" afterDir="false" />
@@ -287,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710085751859</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Adds more concise comments to classes. Removes code testing comments. Continues fixing inconsistency with package key versus vertex key when computing shortest path.">
+      <option name="closed" value="true" />
+      <created>1710119021046</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1710119021046</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -327,6 +335,7 @@
     <MESSAGE value="Creates truck.py class for Truck objects and loading packages for delivery." />
     <MESSAGE value="Begins fixing computeShortestPath() by changing Package and Distance classes." />
     <MESSAGE value="Adds method printAdjacencyList. Still figuring out computeShortestPath (error between storing packages by ID versus accessing vertices by address)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds method printAdjacencyList. Still figuring out computeShortestPath (error between storing packages by ID versus accessing vertices by address)." />
+    <MESSAGE value="Adds more concise comments to classes. Removes code testing comments. Continues fixing inconsistency with package key versus vertex key when computing shortest path." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds more concise comments to classes. Removes code testing comments. Continues fixing inconsistency with package key versus vertex key when computing shortest path." />
   </component>
 </project>
