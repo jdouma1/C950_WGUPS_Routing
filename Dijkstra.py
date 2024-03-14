@@ -77,23 +77,12 @@ def dijkstraDeliveryRoute(graph, startVertex):
 
 # Method used to verify Dijkstra algorithm and display the shortest path between vertices
 def computeShortestPath(startVertex, endVertex, packageHashTable):
-    verticesList = []
-    # shortestPath = ""
+    shortestPath = ""
     currVertex = endVertex
 
     while currVertex is not startVertex:
-        verticesList.append(currVertex)
-        # string = (" --> " + currVertex.label)
-        # shortestPath = string + shortestPath
+        string = (" --> " + currVertex.label)
+        shortestPath = string + shortestPath
         currVertex = currVertex.predecessor
-        if currVertex is None:
-            break
-    # shortestPath = startVertex.label + shortestPath
-
-    string = ""
-    verticesList.append(startVertex)
-    for vertex in verticesList:
-        string = (" --> " + vertex.label + ": " + str(vertex.distance) + string)
-    print(string)
-    return verticesList
-    # return shortestPath
+    shortestPath = startVertex.label + shortestPath
+    return shortestPath

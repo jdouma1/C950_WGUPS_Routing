@@ -1,42 +1,72 @@
-from Distance import Distance, loadDistanceData, loadGraph
-from Dijkstra import dijkstraDeliveryRoute, computeShortestPath
-
 # Truck class used to manually/heuristically load packages for delivery by Dijkstra
 class Truck:
     # Constructor initializes empty list to store packages for delivery
     def __init__(self):
         self.truckPackages = []
+        self.distanceTraveled = 0
 
     # Method loads list of packages provided
     def loadPackages(self, packageList):
         for package in packageList:
             self.truckPackages.append(package)
 
+    # Greedy method to delivery packages based on nearest vertex from current
     def unloadPackages(self, graph, distance, currentTime, hashTable):
-        k = 0
-        for i in range(len(self.truckPackages) - 1):
-            packageId = self.truckPackages[i]
-            package = hashTable.search(packageId)
-            index = distance.addressDataList.index(package.address + " " + str(package.zipCode))
-            startVertex = distance.vertexList[index]
+        # Initialize lists of distances between vertices, the vertices and packages themselves
+        # The first vertex appended is the hub, WGU
+        avgSpeed = 18.00 # mph
+        time = 8.00
+        listDistances = []
+        listVertices = []
+        listPackages = []
+        # List used to store vertices based off nearest neighbor distance for delivery order
+        verticesInDeliveryOrder = []
+        # Stores distances in delivery order to calculate time
+        distancesInDeliveryOrder = []
+        # Save Hub location for beginning and end of delivery distance and time calculation
+        hubVertex = distance.vertexList[0]
 
-            k = k + 1
-            packageId = self.truckPackages[k]
-            nextPackage = hashTable.search(packageId)
-            index = distance.addressDataList.index(nextPackage.address + " " + str(nextPackage.zipCode))
-            endVertex = distance.vertexList[index]
+        # Search the hashtable for each package and append each package to list
+        for id in self.truckPackages:
+            package = hashTable.search(id)
+            listPackages.append(package)
+            # Search for corresponding vertex and append to list
+            vertex = distance.getVertex(package)
+            listVertices.append(vertex)
 
-            if package.address != nextPackage.address:
-                # dijkstraDeliveryRoute(graph, startVertex)
-                computeShortestPath(startVertex, endVertex, hashTable)
+        # Start from Hub and find nearest neighbor to deliver to, appending result to verticesInDeliveryOrder
+        currVertex = hubVertex
+        j = 0
+        while j < len(listPackages):
+            # Current vertex becomes chosen nearest neighbor upon each new iteration of while loop
+            for i in range(len(listVertices)):
+                listDistances.append(graph.edgeWeights[(currVertex, listVertices[i])])
+            minDistance = min(listDistances)
+            minIndex = listDistances.index(minDistance)
+            currVertex = listVertices[minIndex]
+            verticesInDeliveryOrder.append(currVertex)
+            distancesInDeliveryOrder.append(minDistance)
+            # Remove vertex from list since it has already been visited
+            listVertices.pop(minIndex)
+            # Reset list of distances for new current vertex
+            listDistances = []
+            j += 1
 
-        '''
-        for i in range(len(self.truckPackages)):
-            if package.address == address:
-                package.deliveryTime = currentTime
-                hashTable.insert(i, package)
-                self.truckPackages.pop(i)
-        '''
+        # Since packages may share address, use boolean to determine if a delivery has been made
+        continueSearch = True
+        for j in range(len(verticesInDeliveryOrder)):
+            k = 0
+            while k < len(listPackages):
+                vertex = distance.getVertex(listPackages[k])
+                if vertex.label == verticesInDeliveryOrder[j].label and continueSearch is True:
+                    timeHrs = distancesInDeliveryOrder[j] / avgSpeed
+                    print("Delivered package " + str(listPackages[k].packageId) + " to " + vertex.label + " at " + str(timeHrs))
+                    listPackages.pop(k)
+                    # Decrement index since list has shortened
+                    k -= 1
+                    continueSearch = False
+                k += 1
+            continueSearch = True
 
 
 def loadTruckOnePackages(truck):

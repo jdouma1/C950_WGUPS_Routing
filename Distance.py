@@ -41,37 +41,20 @@ class Distance:
             "600 E 900 South 84105",
             "6351 South 900 East 84121"
         ]
-        '''
-        self.addressKeyList = [
-            "Western Governors University",
-            "106084104",
-            "133084106",
-            "148884123",
-            "17784115",
-            "19584115",
-            "201084104",
-            "230084119",
-            "23384103",
-            "253084106",
-            "260084118",
-            "283584115",
-            "30084103",
-            "306084119",
-            "314884119",
-            "336584119",
-            "357584119",
-            "359584115",
-            "38084115",
-            "41084111",
-            "430084117",
-            "458084117",
-            "502584107",
-            "510084118",
-            "538384117",
-            "60084105",
-            "635184121"
-        ]
-        '''
+
+    # Returns vertex on graph from package's address, ZIP combination
+    def getVertex(self, package):
+        address = package.address + " " + str(package.zipCode)
+        for vertex in self.vertexList:
+            if vertex.label == address:
+                return vertex
+
+    # Returns vertex index from package's address, ZIP combination
+    def getVertexIndex(self, package):
+        address = package.address + " " + str(package.zipCode)
+        for i in range(len(self.vertexList)):
+            if self.vertexList[i].label == address:
+                return i
 
 
 # Method takes file and reads through entries to load distances into table

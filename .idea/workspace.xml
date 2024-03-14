@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Adds more concise comments to classes. Removes code testing comments. Continues fixing inconsistency with package key versus vertex key when computing shortest path.">
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Fixes inconsistency. Stores packages by PackageId. References vertices by pulling each package's address. Struggling with Dijkstra.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dijkstra.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/Distance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HashTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Package.py" beforeDir="false" afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Truck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -295,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710119021046</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixes inconsistency. Stores packages by PackageId. References vertices by pulling each package's address. Struggling with Dijkstra.">
+      <option name="closed" value="true" />
+      <created>1710222623822</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1710222623822</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -336,6 +342,7 @@
     <MESSAGE value="Begins fixing computeShortestPath() by changing Package and Distance classes." />
     <MESSAGE value="Adds method printAdjacencyList. Still figuring out computeShortestPath (error between storing packages by ID versus accessing vertices by address)." />
     <MESSAGE value="Adds more concise comments to classes. Removes code testing comments. Continues fixing inconsistency with package key versus vertex key when computing shortest path." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds more concise comments to classes. Removes code testing comments. Continues fixing inconsistency with package key versus vertex key when computing shortest path." />
+    <MESSAGE value="Fixes inconsistency. Stores packages by PackageId. References vertices by pulling each package's address. Struggling with Dijkstra." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes inconsistency. Stores packages by PackageId. References vertices by pulling each package's address. Struggling with Dijkstra." />
   </component>
 </project>

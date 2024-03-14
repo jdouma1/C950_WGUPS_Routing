@@ -4,7 +4,6 @@ import datetime
 from HashTable import HashTable
 from Package import loadPackageData
 from Distance import Distance, loadDistanceData, loadGraph
-from Dijkstra import dijkstraDeliveryRoute, computeShortestPath
 from Truck import Truck, loadTruckOnePackages, reloadTruckOnePackages, loadTruckTwoPackages, reloadTruckTwoPackages
 
 # Global variable for hash table, distance table data, and current time for deliveries
@@ -24,25 +23,24 @@ if __name__ == '__main__':
     # Initialize graph with edges present in distance table
     graph = loadGraph(distance)
 
-    # Perform Dijkstra to find the shortest routes between vertices on graph
-    dijkstraDeliveryRoute(graph, distance.vertexList[0])
-
+    # Create trucks 1 and 2 to be loaded for delivery
     truck1 = Truck()
     truck2 = Truck()
 
     # Load first round packages
     loadTruckOnePackages(truck1)
     loadTruckTwoPackages(truck2)
+
     # Deliver first round packages
-    # verticesList = computeShortestPath(distance.vertexList[12], distance.vertexList[0], packageHashTable)
     truck1.unloadPackages(graph, distance, currentTime, packageHashTable)
+    # truck2.unloadPackages(graph, distance, currentTime, packageHashTable)
 
     # Load next round packages
     reloadTruckOnePackages(truck1)
     reloadTruckTwoPackages(truck2)
-    # Deliver next round packages (CODE MISSING)
-
-
+    # Deliver next round packages
+    # truck1.unloadPackages(graph, distance, currentTime, packageHashTable)
+    # truck2.unloadPackages(graph, distance, currentTime, packageHashTable)
 
     '''
     loop = True
