@@ -14,8 +14,8 @@ class Truck:
     def unloadPackages(self, graph, distance, currentTime, hashTable):
         # Initialize lists of distances between vertices, the vertices and packages themselves
         # The first vertex appended is the hub, WGU
-        avgSpeed = 18.00 # mph
-        time = 8.00
+        avgSpeed = 18.00  # Mph
+        timeHrs = 8.00  # In Hours
         listDistances = []
         listVertices = []
         listPackages = []
@@ -25,6 +25,7 @@ class Truck:
         distancesInDeliveryOrder = []
         # Save Hub location for beginning and end of delivery distance and time calculation
         hubVertex = distance.vertexList[0]
+        finalVertex = None
 
         # Search the hashtable for each package and append each package to list
         for id in self.truckPackages:
@@ -54,12 +55,14 @@ class Truck:
 
         # Since packages may share address, use boolean to determine if a delivery has been made
         continueSearch = True
+        finalVertex = verticesInDeliveryOrder[(len(verticesInDeliveryOrder) - 1)]
         for j in range(len(verticesInDeliveryOrder)):
             k = 0
             while k < len(listPackages):
                 vertex = distance.getVertex(listPackages[k])
                 if vertex.label == verticesInDeliveryOrder[j].label and continueSearch is True:
-                    timeHrs = distancesInDeliveryOrder[j] / avgSpeed
+                    timeHrsBetweenVertices = round((distancesInDeliveryOrder[j] / avgSpeed), 2)
+                    timeHrs = round((timeHrs + timeHrsBetweenVertices), 2)
                     print("Delivered package " + str(listPackages[k].packageId) + " to " + vertex.label + " at " + str(timeHrs))
                     listPackages.pop(k)
                     # Decrement index since list has shortened
@@ -67,6 +70,13 @@ class Truck:
                     continueSearch = False
                 k += 1
             continueSearch = True
+        finalDistance = graph.edgeWeights[(finalVertex, hubVertex)]
+        timeHrsBetweenVertices = round((finalDistance / avgSpeed), 2)
+        timeHrs = round((timeHrs + timeHrsBetweenVertices), 2)
+        print("Returned to hub at " + str(timeHrs))
+        print()
+        print()
+        return currentTime
 
 
 def loadTruckOnePackages(truck):
