@@ -32,15 +32,15 @@ if __name__ == '__main__':
     loadTruckTwoPackages(truck2)
 
     # Deliver first round packages
-    currentTime = truck1.unloadPackages(graph, distance, currentTime, packageHashTable)
-    currentTime = truck2.unloadPackages(graph, distance, currentTime, packageHashTable)
+    currentTime = truck1.unloadPackages(graph, distance, packageHashTable)
+    currentTime = truck2.unloadPackages(graph, distance, packageHashTable)
 
     # Load next round packages
     reloadTruckOnePackages(truck1)
     reloadTruckTwoPackages(truck2)
     # Deliver next round packages
-    # truck1.unloadPackages(graph, distance, currentTime, packageHashTable)
-    # truck2.unloadPackages(graph, distance, currentTime, packageHashTable)
+    currentTime = truck1.unloadPackages(graph, distance, packageHashTable)
+    currentTime = truck2.unloadPackages(graph, distance, packageHashTable)
 
     '''
     loop = True

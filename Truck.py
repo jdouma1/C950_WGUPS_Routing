@@ -1,4 +1,7 @@
 # Truck class used to manually/heuristically load packages for delivery by Dijkstra
+import datetime
+
+
 class Truck:
     # Constructor initializes empty list to store packages for delivery
     def __init__(self):
@@ -11,7 +14,7 @@ class Truck:
             self.truckPackages.append(package)
 
     # Greedy method to delivery packages based on nearest vertex from current
-    def unloadPackages(self, graph, distance, currentTime, hashTable):
+    def unloadPackages(self, graph, distance, hashTable):
         # Initialize lists of distances between vertices, the vertices and packages themselves
         # The first vertex appended is the hub, WGU
         avgSpeed = 18.00  # Mph
@@ -41,10 +44,14 @@ class Truck:
         while j < len(listPackages):
             # Current vertex becomes chosen nearest neighbor upon each new iteration of while loop
             for i in range(len(listVertices)):
-                listDistances.append(graph.edgeWeights[(currVertex, listVertices[i])])
+                if listVertices[i] is not None and currVertex is not None:
+                    listDistances.append(graph.edgeWeights[(currVertex, listVertices[i])])
+            # Find the shortest distance in list of neighboring vertices
             minDistance = min(listDistances)
+            # Find the index in the list where the shortest distance is, and pull the vertex from that index
             minIndex = listDistances.index(minDistance)
             currVertex = listVertices[minIndex]
+            # The vertex with the shortest distance becomes the next vertex in order to deliver to
             verticesInDeliveryOrder.append(currVertex)
             distancesInDeliveryOrder.append(minDistance)
             # Remove vertex from list since it has already been visited
@@ -55,27 +62,38 @@ class Truck:
 
         # Since packages may share address, use boolean to determine if a delivery has been made
         continueSearch = True
+        # Stores the address of the final package to be delivered. Used to calculate distance between address and Hub
         finalVertex = verticesInDeliveryOrder[(len(verticesInDeliveryOrder) - 1)]
         for j in range(len(verticesInDeliveryOrder)):
             k = 0
             while k < len(listPackages):
                 vertex = distance.getVertex(listPackages[k])
+                # If addresses match and package has not already been delivered this iteration
                 if vertex.label == verticesInDeliveryOrder[j].label and continueSearch is True:
+                    # Time to travel distance to next vertex rounded 2 decimal places
                     timeHrsBetweenVertices = round((distancesInDeliveryOrder[j] / avgSpeed), 2)
                     timeHrs = round((timeHrs + timeHrsBetweenVertices), 2)
-                    print("Delivered package " + str(listPackages[k].packageId) + " to " + vertex.label + " at " + str(timeHrs))
+                    print("Delivered package " + str(listPackages[k].packageId) + " to " + vertex.label + " at", end=" ")
+                    # Update package delivery time
+                    package = listPackages[k]
+                    package.deliveryTime = getTimeDelta(timeHrs)
+                    hashTable.insert(package.packageId, package)
+                    print(hashTable.search(package.packageId).deliveryTime)
                     listPackages.pop(k)
                     # Decrement index since list has shortened
                     k -= 1
                     continueSearch = False
                 k += 1
             continueSearch = True
+        # Calculate distance and travel time between final delivery and Hub
         finalDistance = graph.edgeWeights[(finalVertex, hubVertex)]
         timeHrsBetweenVertices = round((finalDistance / avgSpeed), 2)
         timeHrs = round((timeHrs + timeHrsBetweenVertices), 2)
-        print("Returned to hub at " + str(timeHrs))
+        print("Returned to hub at", end=" ")
+        print(getTimeDelta(timeHrs))
         print()
         print()
+        currentTime = getTimeDelta(timeHrs)
         return currentTime
 
 
@@ -106,6 +124,7 @@ def loadTruckTwoPackages(truck):
 
 
 def reloadTruckOnePackages(truck):
+    truck.truckPackages = []
     # TRUCK 1
     # Delayed flight, will not arrive at depot until 9:05 A.M.
     # [6, 25]: 10:30 A.M. // [28, 32]: EOD
@@ -116,8 +135,30 @@ def reloadTruckOnePackages(truck):
 
 
 def reloadTruckTwoPackages(truck):
+    truck.truckPackages = []
     # TRUCK 2 (EOD)
     truck.loadPackages([17, 21, 22, 23, 24, 26, 27, 33])
 
     # Correct address unknown until 10:20 A.M. (EOD)
     truck.loadPackages([9])
+
+
+# Given decimal value of time in hours, return timeDelta of hours, minutes, seconds
+def getTimeDelta(hoursDecimal):
+    # Get hours and update decimal - hours
+    hours = int(hoursDecimal)
+    timeHrs = round((hoursDecimal - hours), 2)
+    # print("Hours: " + str(hours))
+
+    # Get minutes and update decimal - minutes
+    timeHrs = round((timeHrs * 60), 2)
+    minutes = int(timeHrs)
+    # print("Minutes: " + str(minutes))
+
+    # Get seconds and update decimal - seconds
+    timeHrs = timeHrs - minutes
+    seconds = int(timeHrs * 60)
+    # print("Seconds: " + str(seconds))
+
+    timedelta = datetime.timedelta(hours=hours, minutes=minutes, seconds=seconds)
+    return timedelta

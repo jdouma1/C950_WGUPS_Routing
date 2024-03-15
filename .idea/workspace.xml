@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Scraps Dijkstra, utilizes nearest neighbor algorithm. Implements functioning unloadPackages() method. Needs to implement updating package delivery time.">
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Implements delivery time as a decimal hours value. Needs to implement dateTime and update delivery time in package hashtable.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Truck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -307,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710444095949</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Implements delivery time as a decimal hours value. Needs to implement dateTime and update delivery time in package hashtable.">
+      <option name="closed" value="true" />
+      <created>1710523255197</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1710523255197</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -325,7 +333,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initialize python project" />
     <MESSAGE value="Adds HashTable.py file to be written later." />
     <MESSAGE value="Defines HashTable class with __init__ function for empty hash table." />
     <MESSAGE value="Defines insert() method for HashTable and adds comments for this method and prior class code." />
@@ -350,6 +357,7 @@
     <MESSAGE value="Adds more concise comments to classes. Removes code testing comments. Continues fixing inconsistency with package key versus vertex key when computing shortest path." />
     <MESSAGE value="Fixes inconsistency. Stores packages by PackageId. References vertices by pulling each package's address. Struggling with Dijkstra." />
     <MESSAGE value="Scraps Dijkstra, utilizes nearest neighbor algorithm. Implements functioning unloadPackages() method. Needs to implement updating package delivery time." />
-    <option name="LAST_COMMIT_MESSAGE" value="Scraps Dijkstra, utilizes nearest neighbor algorithm. Implements functioning unloadPackages() method. Needs to implement updating package delivery time." />
+    <MESSAGE value="Implements delivery time as a decimal hours value. Needs to implement dateTime and update delivery time in package hashtable." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements delivery time as a decimal hours value. Needs to implement dateTime and update delivery time in package hashtable." />
   </component>
 </project>
