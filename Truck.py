@@ -14,11 +14,11 @@ class Truck:
             self.truckPackages.append(package)
 
     # Greedy method to delivery packages based on nearest vertex from current
-    def unloadPackages(self, graph, distance, hashTable):
+    def unloadPackages(self, graph, distance, hashTable, currentTime):
         # Initialize lists of distances between vertices, the vertices and packages themselves
         # The first vertex appended is the hub, WGU
         avgSpeed = 18.00  # Mph
-        timeHrs = 8.00  # In Hours
+        timeHrs = getTimeDecimal(currentTime)  # In Hours
         listDistances = []
         listVertices = []
         listPackages = []
@@ -44,8 +44,7 @@ class Truck:
         while j < len(listPackages):
             # Current vertex becomes chosen nearest neighbor upon each new iteration of while loop
             for i in range(len(listVertices)):
-                if listVertices[i] is not None and currVertex is not None:
-                    listDistances.append(graph.edgeWeights[(currVertex, listVertices[i])])
+                listDistances.append(graph.edgeWeights[(currVertex, listVertices[i])])
             # Find the shortest distance in list of neighboring vertices
             minDistance = min(listDistances)
             # Find the index in the list where the shortest distance is, and pull the vertex from that index
@@ -162,3 +161,16 @@ def getTimeDelta(hoursDecimal):
 
     timedelta = datetime.timedelta(hours=hours, minutes=minutes, seconds=seconds)
     return timedelta
+
+
+def getTimeDecimal(timedelta):
+    totalSeconds = timedelta.total_seconds()
+    hours = int(totalSeconds / 3600)
+    totalSeconds = totalSeconds - (3600 * hours)
+    minutes = int(totalSeconds / 60)
+    totalSeconds = totalSeconds - (minutes * 60)
+    seconds = totalSeconds
+
+    timeDecimal = round((float(hours) + float(minutes / 60.0) + float(seconds / 3600.0)), 2)
+
+    return timeDecimal

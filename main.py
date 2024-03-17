@@ -26,21 +26,23 @@ if __name__ == '__main__':
     # Create trucks 1 and 2 to be loaded for delivery
     truck1 = Truck()
     truck2 = Truck()
+    currentTimeTruck1 = currentTime
+    currentTimeTruck2 = currentTime
 
     # Load first round packages
     loadTruckOnePackages(truck1)
     loadTruckTwoPackages(truck2)
 
     # Deliver first round packages
-    currentTime = truck1.unloadPackages(graph, distance, packageHashTable)
-    currentTime = truck2.unloadPackages(graph, distance, packageHashTable)
+    currentTimeTruck1 = truck1.unloadPackages(graph, distance, packageHashTable, currentTimeTruck1)
+    currentTimeTruck2 = truck2.unloadPackages(graph, distance, packageHashTable, currentTimeTruck2)
 
     # Load next round packages
     reloadTruckOnePackages(truck1)
     reloadTruckTwoPackages(truck2)
     # Deliver next round packages
-    currentTime = truck1.unloadPackages(graph, distance, packageHashTable)
-    currentTime = truck2.unloadPackages(graph, distance, packageHashTable)
+    currentTimeTruck1 = truck1.unloadPackages(graph, distance, packageHashTable, currentTimeTruck1)
+    currentTimeTruck2 = truck2.unloadPackages(graph, distance, packageHashTable, currentTimeTruck2)
 
     '''
     loop = True
