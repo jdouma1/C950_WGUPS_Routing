@@ -1,6 +1,8 @@
 # Jacob Douma / Student ID: 010764471
 
 import datetime
+
+import Package
 from HashTable import HashTable
 from Package import loadPackageData
 from Distance import Distance, loadDistanceData, loadGraph
@@ -24,8 +26,8 @@ if __name__ == '__main__':
     graph = loadGraph(distance)
 
     # Create trucks 1 and 2 to be loaded for delivery
-    truck1 = Truck()
-    truck2 = Truck()
+    truck1 = Truck(1)
+    truck2 = Truck(2)
     currentTimeTruck1 = currentTime
     currentTimeTruck2 = currentTime
 
@@ -44,23 +46,27 @@ if __name__ == '__main__':
     currentTimeTruck1 = truck1.unloadPackages(graph, distance, packageHashTable, currentTimeTruck1)
     currentTimeTruck2 = truck2.unloadPackages(graph, distance, packageHashTable, currentTimeTruck2)
 
-    print("Total miles traveled: " + str(truck1.getTotalDistanceTraveled() + truck2.getTotalDistanceTraveled()))
-
     loop = True
     while loop is True:
         print("OPTIONS:")
-        print("1: Print All Package Status and Total Mileage ")
+        print("1: Print All Package Status and Total Mileage")
         print("2: Get a Single Package Status with a Time")
         print("3: Get All Package Status with a Time")
-        print("4: Exit the Program")
+        print("4: Exit the Program\n")
 
         choice = input()
         if choice == '1':
-            print('1')
+            packageHashTable.printAllPackages()
+            print("\nTotal miles traveled: " + str(truck1.getTotalDistanceTraveled() + truck2.getTotalDistanceTraveled()) + "\n")
         if choice == '2':
-            print('2')
+            packageId = int(input("Enter the package you would like to view: "))
+            print()
+            time = float(input("Enter the time you would like to view its status (in form: __.__): "))
+            packageHashTable.printPackage(packageId, time)
+            print()
         if choice == '3':
-            print('3')
+            time = float(input("Enter the time you would like to view the packages (in form: __.__): "))
+            packageHashTable.printAllPackages(time)
         if choice == '4':
             loop = False
             break

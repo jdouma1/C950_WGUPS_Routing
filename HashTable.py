@@ -9,6 +9,15 @@ class HashTable:
         for i in range(initialCapacity):
             self.table.append([])
 
+    # Method prints specific package in hash table with optional specified time (and truck for printing purposes in conjunction with time)
+    def printPackage(self, packageId, time=None):
+        print(self.search(packageId).__str__(time))
+
+    # Method prints all packages in hash table with optional specified time (and truck for printing purposes in conjunction with time)
+    def printAllPackages(self, time=None):
+        for i in range(1, 41):
+            print(self.search(i).__str__(time))
+
     # This method hashes the item and places it into the appropriate bucket
     # Chaining is used if applicable
     def insert(self, key, value):
@@ -33,7 +42,6 @@ class HashTable:
 
     # This method searches for the item by hashing the key and searching the returned bucket list
     def search(self, key):
-
         # The item's bucket is found by hashing the key then performing 'hash mod table length'
         # The bucket list is found by retrieving the list stored in the bucket
         bucket = hash(key) % len(self.table)

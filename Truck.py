@@ -4,9 +4,20 @@ import datetime
 
 class Truck:
     # Constructor initializes empty list to store packages for delivery
-    def __init__(self):
-        self.truckPackages = []
+    def __init__(self, truckNumber):
+        self.truckNumber = truckNumber
+        self.firstRoundPackages = []
+        self.secondRoundPackages = []
+        self.secondRoundStart = 0
         self.distanceTraveled = 0
+        self.round = 1
+
+    # Method returns either packages loaded on first round or second round of deliveries
+    def getTruckPackages(self):
+        if self.round == 1:
+            return self.firstRoundPackages
+        if self.round == 2:
+            return self.secondRoundPackages
 
     # Method returns the total distance the truck has traveled in miles
     def getTotalDistanceTraveled(self):
@@ -15,10 +26,15 @@ class Truck:
     # Method loads list of packages provided
     def loadPackages(self, packageList):
         for package in packageList:
-            self.truckPackages.append(package)
+            if self.round == 1:
+                self.firstRoundPackages.append(package)
+            if self.round == 2:
+                self.secondRoundPackages.append(package)
 
     # Greedy method to delivery packages based on nearest vertex from current
     def unloadPackages(self, graph, distance, hashTable, currentTime):
+        if self.round == 2:
+            self.secondRoundStart = currentTime
         # Initialize lists of distances between vertices, the vertices and packages themselves
         # The first vertex appended is the hub, WGU
         avgSpeed = 18.00  # Mph
@@ -35,7 +51,8 @@ class Truck:
         finalVertex = None
 
         # Search the hashtable for each package and append each package to list
-        for id in self.truckPackages:
+        truckPackages = self.getTruckPackages()
+        for id in truckPackages:
             package = hashTable.search(id)
             listPackages.append(package)
             # Search for corresponding vertex and append to list
@@ -79,11 +96,13 @@ class Truck:
                     timeHrsBetweenVertices = round((distancesInDeliveryOrder[j] / avgSpeed), 2)
                     timeHrs = round((timeHrs + timeHrsBetweenVertices), 2)
                     print("Delivered package " + str(listPackages[k].packageId) + " to " + vertex.label + " at", end=" ")
-                    # Update package delivery time
+                    # Update package delivery time and truck
                     package = listPackages[k]
                     package.deliveryStatus = getTimeDelta(timeHrs)
+                    package.truckNumber = self.truckNumber
+                    package.truck = self
                     hashTable.insert(package.packageId, package)
-                    print(hashTable.search(package.packageId).deliveryTime)
+                    print(hashTable.search(package.packageId).deliveryStatus)
                     listPackages.pop(k)
                     # Decrement index since list has shortened
                     k -= 1
@@ -129,6 +148,7 @@ def loadTruckTwoPackages(truck):
 
 
 def reloadTruckOnePackages(truck):
+    truck.round = 2
     truck.truckPackages = []
     # TRUCK 1
     # [6, 25]: 10:30 A.M. // [28, 32]: EOD
@@ -140,6 +160,7 @@ def reloadTruckOnePackages(truck):
 
 
 def reloadTruckTwoPackages(truck):
+    truck.round = 2
     truck.truckPackages = []
     # TRUCK 2
     # Extra packages to be loaded (EOD) // [36, 38] CAN ONLY BE ON TRUCK 2

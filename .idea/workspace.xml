@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Updates how packages are manually/heuristically loaded to fulfill requirements.">
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Creates tracker and display for total miles traveled by the trucks.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HashTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/HashTable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Package.py" beforeDir="false" afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Truck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -339,7 +341,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710637808894</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Creates tracker and display for total miles traveled by the trucks.">
+      <option name="closed" value="true" />
+      <created>1710638375598</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1710638375598</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -357,7 +367,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Defines search() method for HashTable with documented comments." />
     <MESSAGE value="Defines remove() method for HashTable with documented comments." />
     <MESSAGE value="Updates insert() method for HashTable for operating on [key,value] pairs." />
     <MESSAGE value="Updates search() method for HashTable for operating on [key,value] pairs." />
@@ -382,6 +391,7 @@
     <MESSAGE value="Implements successful first round delivery. Needs to fix key error in line 47 of Truck.py for second round delivery." />
     <MESSAGE value="Fixes key error in Truck's unloadPackages() with mistmatched address in Package versus address list in Distance.py. Implements current time into first and second round deliveries and pushes delivery time to package." />
     <MESSAGE value="Updates how packages are manually/heuristically loaded to fulfill requirements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates how packages are manually/heuristically loaded to fulfill requirements." />
+    <MESSAGE value="Creates tracker and display for total miles traveled by the trucks." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creates tracker and display for total miles traveled by the trucks." />
   </component>
 </project>
