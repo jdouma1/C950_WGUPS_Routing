@@ -44,7 +44,8 @@ if __name__ == '__main__':
     currentTimeTruck1 = truck1.unloadPackages(graph, distance, packageHashTable, currentTimeTruck1)
     currentTimeTruck2 = truck2.unloadPackages(graph, distance, packageHashTable, currentTimeTruck2)
 
-    '''
+    print("Total miles traveled: " + str(truck1.getTotalDistanceTraveled() + truck2.getTotalDistanceTraveled()))
+
     loop = True
     while loop is True:
         print("OPTIONS:")
@@ -63,4 +64,3 @@ if __name__ == '__main__':
         if choice == '4':
             loop = False
             break
-    '''

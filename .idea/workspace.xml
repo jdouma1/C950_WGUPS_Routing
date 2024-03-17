@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Fixes key error in Truck's unloadPackages() with mistmatched address in Package versus address list in Distance.py. Implements current time into first and second round deliveries and pushes delivery time to package.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Updates how packages are manually/heuristically loaded to fulfill requirements.">
+      <change beforePath="$PROJECT_DIR$/Package.py" beforeDir="false" afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Truck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710635532189</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Updates how packages are manually/heuristically loaded to fulfill requirements.">
+      <option name="closed" value="true" />
+      <created>1710637808894</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1710637808894</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -348,7 +357,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Defines insert() method for HashTable and adds comments for this method and prior class code." />
     <MESSAGE value="Defines search() method for HashTable with documented comments." />
     <MESSAGE value="Defines remove() method for HashTable with documented comments." />
     <MESSAGE value="Updates insert() method for HashTable for operating on [key,value] pairs." />
@@ -373,6 +381,7 @@
     <MESSAGE value="Implements delivery time as a decimal hours value. Needs to implement dateTime and update delivery time in package hashtable." />
     <MESSAGE value="Implements successful first round delivery. Needs to fix key error in line 47 of Truck.py for second round delivery." />
     <MESSAGE value="Fixes key error in Truck's unloadPackages() with mistmatched address in Package versus address list in Distance.py. Implements current time into first and second round deliveries and pushes delivery time to package." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes key error in Truck's unloadPackages() with mistmatched address in Package versus address list in Distance.py. Implements current time into first and second round deliveries and pushes delivery time to package." />
+    <MESSAGE value="Updates how packages are manually/heuristically loaded to fulfill requirements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates how packages are manually/heuristically loaded to fulfill requirements." />
   </component>
 </project>

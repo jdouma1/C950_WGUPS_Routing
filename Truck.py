@@ -8,6 +8,10 @@ class Truck:
         self.truckPackages = []
         self.distanceTraveled = 0
 
+    # Method returns the total distance the truck has traveled in miles
+    def getTotalDistanceTraveled(self):
+        return self.distanceTraveled
+
     # Method loads list of packages provided
     def loadPackages(self, packageList):
         for package in packageList:
@@ -69,13 +73,15 @@ class Truck:
                 vertex = distance.getVertex(listPackages[k])
                 # If addresses match and package has not already been delivered this iteration
                 if vertex.label == verticesInDeliveryOrder[j].label and continueSearch is True:
+                    # Updates total distance traveled by the truck
+                    self.distanceTraveled += distancesInDeliveryOrder[j]
                     # Time to travel distance to next vertex rounded 2 decimal places
                     timeHrsBetweenVertices = round((distancesInDeliveryOrder[j] / avgSpeed), 2)
                     timeHrs = round((timeHrs + timeHrsBetweenVertices), 2)
                     print("Delivered package " + str(listPackages[k].packageId) + " to " + vertex.label + " at", end=" ")
                     # Update package delivery time
                     package = listPackages[k]
-                    package.deliveryTime = getTimeDelta(timeHrs)
+                    package.deliveryStatus = getTimeDelta(timeHrs)
                     hashTable.insert(package.packageId, package)
                     print(hashTable.search(package.packageId).deliveryTime)
                     listPackages.pop(k)
