@@ -32,7 +32,7 @@ class Truck:
                 self.secondRoundPackages.append(package)
 
     # Greedy method to delivery packages based on nearest vertex from current
-    def unloadPackages(self, graph, distance, hashTable, currentTime):
+    def nearestNeighborUnloadPackages(self, graph, distance, hashTable, currentTime):
         if self.round == 2:
             self.secondRoundStart = currentTime
         # Initialize lists of distances between vertices, the vertices and packages themselves
