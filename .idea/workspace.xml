@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Creates intuitive console user interface to analyze package and truck status.">
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Changes name of delivery algorithm.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Truck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../C950_WGUPS_Routing\exportToHTML" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -29,7 +31,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -355,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710654133421</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Changes name of delivery algorithm.">
+      <option name="closed" value="true" />
+      <created>1710658099981</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1710658099981</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -373,7 +382,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updates insert() method for HashTable for operating on [key,value] pairs." />
     <MESSAGE value="Updates search() method for HashTable for operating on [key,value] pairs." />
     <MESSAGE value="Updates remove() method for HashTable for operating on [key,value] pairs." />
     <MESSAGE value="Adds test script in main.py to ensure working HashTable" />
@@ -398,6 +406,7 @@
     <MESSAGE value="Updates how packages are manually/heuristically loaded to fulfill requirements." />
     <MESSAGE value="Creates tracker and display for total miles traveled by the trucks." />
     <MESSAGE value="Creates intuitive console user interface to analyze package and truck status." />
-    <option name="LAST_COMMIT_MESSAGE" value="Creates intuitive console user interface to analyze package and truck status." />
+    <MESSAGE value="Changes name of delivery algorithm." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes name of delivery algorithm." />
   </component>
 </project>

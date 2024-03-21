@@ -35,6 +35,14 @@ class Truck:
     def nearestNeighborUnloadPackages(self, graph, distance, hashTable, currentTime):
         if self.round == 2:
             self.secondRoundStart = currentTime
+            startDecimal = getTimeDecimal(self.secondRoundStart)
+            if startDecimal >= 10.2:
+                package = hashTable.search(9)
+                package.address = "410 S State St"
+                package.city = "Salt Lake City"
+                package.state = "UT"
+                package.zipCode = 84111
+                hashTable.insert(9, package)
         # Initialize lists of distances between vertices, the vertices and packages themselves
         # The first vertex appended is the hub, WGU
         avgSpeed = 18.00  # Mph
