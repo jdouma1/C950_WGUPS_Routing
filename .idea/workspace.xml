@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Changes package 9 address to correct delivery address upon upload of correct address at 10:20AM.">
+    <list default="true" id="e6e0a4b2-f080-46ca-a574-51f55d64d328" name="Changes" comment="Updates previous commit to update package 9 address at correct time and display address correctly upon query.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Package.py" beforeDir="false" afterPath="$PROJECT_DIR$/Package.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Truck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -374,7 +372,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711060114427</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Updates previous commit to update package 9 address at correct time and display address correctly upon query.">
+      <option name="closed" value="true" />
+      <created>1711328355986</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1711328355986</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -392,7 +398,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updates remove() method for HashTable for operating on [key,value] pairs." />
     <MESSAGE value="Adds test script in main.py to ensure working HashTable" />
     <MESSAGE value="Adds comments to main.py and Package.py for recently implemented class and loadPackageData() logic." />
     <MESSAGE value="Adds Vertex and Graph classes to map packages and their weights(distances)." />
@@ -417,6 +422,7 @@
     <MESSAGE value="Creates intuitive console user interface to analyze package and truck status." />
     <MESSAGE value="Changes name of delivery algorithm." />
     <MESSAGE value="Changes package 9 address to correct delivery address upon upload of correct address at 10:20AM." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes package 9 address to correct delivery address upon upload of correct address at 10:20AM." />
+    <MESSAGE value="Updates previous commit to update package 9 address at correct time and display address correctly upon query." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates previous commit to update package 9 address at correct time and display address correctly upon query." />
   </component>
 </project>

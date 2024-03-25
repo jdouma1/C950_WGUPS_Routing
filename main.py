@@ -62,7 +62,7 @@ if __name__ == '__main__':
             packageId = int(input("Enter the package you would like to view: "))
             print()
             print("Enter the time you would like to view its status: ")
-            hours = int(input("Hours: "))
+            hours = int(input("Hours (24-hour clock system): "))
             minutes = int(input("Minutes: "))
             timedelta = datetime.timedelta(hours=int(hours), minutes=int(minutes), seconds=int(0))
             timeDecimal = getTimeDecimal(timedelta)
@@ -70,11 +70,12 @@ if __name__ == '__main__':
             print()
         if choice == '3':
             print("Enter the time you would like to view the packages: ")
-            hours = int(input("Hours: "))
+            hours = int(input("Hours (24-hour clock system): "))
             minutes = int(input("Minutes: "))
             timedelta = datetime.timedelta(hours=int(hours), minutes=int(minutes), seconds=int(0))
             timeDecimal = getTimeDecimal(timedelta)
             packageHashTable.printAllPackages(timeDecimal)
+            print()
         if choice == '4':
             loop = False
             break
