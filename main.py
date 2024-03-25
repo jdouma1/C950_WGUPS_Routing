@@ -6,7 +6,7 @@ import Package
 from HashTable import HashTable
 from Package import loadPackageData
 from Distance import Distance, loadDistanceData, loadGraph
-from Truck import Truck, loadTruckOnePackages, reloadTruckOnePackages, loadTruckTwoPackages, reloadTruckTwoPackages
+from Truck import Truck, loadTruckOnePackages, reloadTruckOnePackages, loadTruckTwoPackages, reloadTruckTwoPackages, getTimeDecimal, getTimeDelta
 
 # Global variable for hash table, distance table data, and current time for deliveries
 # 8:00 A.M. is when trucks depart the depot for delivery
@@ -61,12 +61,20 @@ if __name__ == '__main__':
         if choice == '2':
             packageId = int(input("Enter the package you would like to view: "))
             print()
-            time = float(input("Enter the time you would like to view its status (in form: __.__): "))
-            packageHashTable.printPackage(packageId, time)
+            print("Enter the time you would like to view its status: ")
+            hours = int(input("Hours: "))
+            minutes = int(input("Minutes: "))
+            timedelta = datetime.timedelta(hours=int(hours), minutes=int(minutes), seconds=int(0))
+            timeDecimal = getTimeDecimal(timedelta)
+            packageHashTable.printPackage(packageId, timeDecimal)
             print()
         if choice == '3':
-            time = float(input("Enter the time you would like to view the packages (in form: __.__): "))
-            packageHashTable.printAllPackages(time)
+            print("Enter the time you would like to view the packages: ")
+            hours = int(input("Hours: "))
+            minutes = int(input("Minutes: "))
+            timedelta = datetime.timedelta(hours=int(hours), minutes=int(minutes), seconds=int(0))
+            timeDecimal = getTimeDecimal(timedelta)
+            packageHashTable.printAllPackages(timeDecimal)
         if choice == '4':
             loop = False
             break

@@ -9,6 +9,8 @@ class Package:
     # Constructor for package to store address and other key information
     def __init__(self, packageId, address, city, state, zipCode, deliveryDeadline, weight, deliveryStatus, truckNumber="", truck=None):
         self.packageId = packageId
+        self.prevAddress = "None"
+        self.timeKnownCorrectAddress = datetime.timedelta(hours=int(0), minutes=int(0), seconds=int(0))
         self.address = address
         self.city = city
         self.state = state
@@ -31,20 +33,30 @@ class Package:
         # Package has been delivered already
         if deliveryTime <= requestedTime:
             return "%s, %s, %s, %s, %s, %s, %s, Delivered by truck %s at: %s" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight, self.truckNumber, self.deliveryStatus)
-        # Package has left the hub already
+        # Package has left the hub already (en route)
         else:
-            secondRoundStart = Truck.getTimeDecimal(self.truck.secondRoundStart)
+            secondRoundStart = self.truck.secondRoundStart
+            secondRoundStartDecimal = Truck.getTimeDecimal(secondRoundStart)
             # Package was delivered in the first round
-            if secondRoundStart > Truck.getTimeDecimal(self.deliveryStatus):
-                departureTime = Truck.getTimeDecimal(datetime.timedelta(hours=int(8), minutes=int(0), seconds=int(0)))
-                if departureTime <= requestedTime:
+            if secondRoundStartDecimal > Truck.getTimeDecimal(self.deliveryStatus):
+                departureTime = datetime.timedelta(hours=int(8), minutes=int(0), seconds=int(0))
+                departureTimeDecimal = Truck.getTimeDecimal(departureTime)
+                if departureTimeDecimal <= requestedTime:
                     return "%s, %s, %s, %s, %s, %s, %s, En Route by truck %s since: %s" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight, self.truckNumber, departureTime)
             # Package was delivered in the second round
             else:
-                if secondRoundStart <= requestedTime:
+                # Package is en route
+                if secondRoundStartDecimal <= requestedTime:
                     return "%s, %s, %s, %s, %s, %s, %s, En Route by truck %s since: %s" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight, self.truckNumber, secondRoundStart)
             # Package is still at the hub
-            return "%s, %s, %s, %s, %s, %s, %s, At Hub" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight)
+            # Package's address has not been updated
+            if self.prevAddress == "None":
+                return "%s, %s, %s, %s, %s, %s, %s, At Hub" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight)
+            # Package's address has been changed prior to time query
+            if Truck.getTimeDecimal(self.timeKnownCorrectAddress) <= requestedTime:
+                return "%s, %s, %s, %s, %s, %s, %s, At Hub" % (self.packageId, self.address, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight)
+            # Package's address has not been updated prior to time query (Change address to prevAddress)
+            return "%s, %s, %s, %s, %s, %s, %s, At Hub" % (self.packageId, self.prevAddress, self.city, self.state, self.zipCode, self.deliveryDeadline, self.weight)
 
 
 

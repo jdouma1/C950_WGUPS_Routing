@@ -35,9 +35,10 @@ class Truck:
     def nearestNeighborUnloadPackages(self, graph, distance, hashTable, currentTime):
         if self.round == 2:
             self.secondRoundStart = currentTime
-            startDecimal = getTimeDecimal(self.secondRoundStart)
-            if startDecimal >= 10.2:
+            if currentTime.total_seconds() >= 37200:
                 package = hashTable.search(9)
+                package.prevAddress = package.address
+                package.timeKnownCorrectAddress = datetime.timedelta(hours=int(10), minutes=int(20), seconds=int(0))
                 package.address = "410 S State St"
                 package.city = "Salt Lake City"
                 package.state = "UT"
@@ -186,13 +187,15 @@ def getTimeDelta(hoursDecimal):
     # print("Hours: " + str(hours))
 
     # Get minutes and update decimal - minutes
-    timeHrs = round((timeHrs * 60), 2)
+    timeHrs = round(timeHrs * 60, 2)
+    # timeHrs = round((timeHrs + 0.01) * 60, 2)
     minutes = int(timeHrs)
     # print("Minutes: " + str(minutes))
 
     # Get seconds and update decimal - seconds
     timeHrs = timeHrs - minutes
     seconds = int(timeHrs * 60)
+    # seconds = 0
     # print("Seconds: " + str(seconds))
 
     timedelta = datetime.timedelta(hours=hours, minutes=minutes, seconds=seconds)
